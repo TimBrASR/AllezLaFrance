@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html.twig' %}
+
+<body>
+{% include 'navbar.html.twig' %}
+
+<!-- Page content-->
+<div class="container">
+    <div class="text-center mt-5">
+        <h1> Accueil</h1>
+        <p class="lead">Licence ASR</p>
+        <p>Mon Blog</p>
+    </div>
+<div class="row mb-5">
+        <form id="" method="GET" action="recherche.php">
+            <div class="col-6">
+                <input type="text" class="form-control" name="search" value="" placeholder="Mot clé....">
+            </div>
+            <div class="col-6">
+                <button type="submit" id="submit" value="recherche" class="btn btn-primary">Rechercher</button>
+            </div>
+        </form>
+    </div>
+
+
+<div class="row">
+        {% for articles in listeArticles %}
+            <div class="col-6 mb-4">
+            <div class="card">
+                <img src="img/{{articles.getId}}.jpg" 
+                style="max-width: 200px;" 
+                class="card-img-top" alt="{{articles.getTitre}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{articles.getTitre}}</h5>
+                    <p class="card-text">{{articles.getTexte}}</p>
+                    <a href="#" class="btn btn-primary">{{articles.getDate}}</a>
+                    <a href="article.php?id={{articles.getId}}" class="btn btn-primary">Modifier</a>
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% include 'footer.html.twig' %}
+
+            </body>
+</html>
+

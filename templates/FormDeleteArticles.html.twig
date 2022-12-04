@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+{% include 'header.html.twig' %}
+
+	<body>
+		<!-- Responsive navbar-->
+		
+{% include 'navbar.html.twig' %}
+
+		<!-- Page Content-->
+		<div
+			class="container px-4 px-lg-5">
+			<!-- Heading Row-->
+			<div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+				<div class="col-12">
+					<h1 class="font-weight-light">
+						{{ "Souhaitez vous vraiment supprimer cette article?" }}
+					</h1>
+					
+
+				</div>
+			</div>
+
+
+			<!-- Content Row-->
+			<!-- Formulaire-->
+			<form
+				method="POST" id="articleForm" action='FormDeleteArticles.php' enctype="multipart/form-data">
+
+
+				<!-- ID-->
+				<div class="mb-3">
+					<label for="texte" class="form-label">ID</label>
+					<input readonly="readonly" type="text" name="id" class="form-control" id="texte" aria-describedby="emailHelp" value={{ articles.getId }}>
+					<div id="emailHelp" class="form-text"></div>
+				</div>
+
+				<!-- Titre-->
+				<div class="mb-3">
+					<label for="texte" class="form-label">Titre</label>
+					<input readonly="readonly" type="text" name="titre" class="form-control" id="texte" aria-describedby="emailHelp" value={{ articles.getTitre }}>
+					<div id="emailHelp" class="form-text"></div>
+				</div>
+
+				<!-- Texte-->
+				<div class="input-group">
+					<span class="input-group-text">Description</span>
+					<textarea readonly="readonly" class="form-control" name="texte" aria-label="With textarea">{{ articles.getTexte }}</textarea>
+				</div>
+
+				<br><br>
+
+				<!-- image-->
+				<div class="input-group mb-3">
+					<input type="file" name="image" class="form-control" id="image" disabled>
+					<label class="input-group-text" for="inputGroupFile02">Choisir Une Image</label>
+
+				</div>
+
+				<!-- publie-->
+				<div class="mb-3 form-check">
+					<input readonly="readonly" type="checkbox" name="publie" class="form-check-input" id="publie" checked>
+
+					<label class="form-check-label" for="exampleCheck1">Publie</label>
+				</div>
+
+
+				<button type="submit"  class="btn btn-primary" name="delete">Supprimer</button>
+
+			</form>
+			<!-- Ici afficher tous les commentaires de la video-->
+			{% for articles in ListCommentaires %}
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title" name="id_articles">
+							{{ articles.getid_articles }}</h5>
+						<h5 class="card-title">{{ articles.getpseudo }}</h5>
+						<h1 class="card-title">{{ articles.getemail }}</h1>
+						<p class="card-text">{{ articles.getcommentaires_texte }}</p>
+
+					</div>
+				</div>
+
+			{% endfor %}
+
+			<br>
+
+		</div>
+
+
+		<!-- Footer-->
+		 {% include 'footer.html.twig' %}
+	</body>
+</html>

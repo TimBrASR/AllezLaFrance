@@ -1,0 +1,90 @@
+<!-- pas réussi le bouton modifier, quand je modifie mon article, cela me donne une erreur au niveau de la base de donnée avec le "where id",
+ un problème de synthaxe, j'ai cherché dans la doc de MariaDB mais je n'ai pas trouvé -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'header.html.twig' %}
+
+
+	<body>
+		<!-- Responsive navbar-->
+		{% include 'navbar.html.twig' %}
+<div class="container">
+    <div class="text-center mt-5">
+        <h1> Formulaire</h1>
+        <p class="lead">Licence ASR</p>
+        <p>Mon Blog</p>
+    </div>
+</div>
+
+		<!-- Page Content-->
+		<div
+			class="container px-4 px-lg-5">
+			<!-- Heading Row-->
+			<div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+				<div class="col-12">
+					
+
+				</div>
+			</div>
+
+
+			<!-- Content Row-->
+			<!-- Formulaire-->
+			<form
+				method="POST" id="articleForm" action="update.php" enctype="multipart/form-data">
+
+				<!-- Titre-->
+				<div class="mb-3">
+					<label for="texte" class="form-label">Modifier le titre</label>
+					<input value={{ articles.getTitre }} type="text" name="titre" class="form-control" id="texte" aria-describedby="emailHelp" required>
+					<div id="emailHelp" class="form-text"></div>
+				</div>
+
+				<!-- Texte-->
+				<div class="input-group">
+					<span class="input-group-text">Modifier la description</span>
+					<textarea class="form-control" name="texte" aria-label="With textarea" required>  {{ articles.getTexte }} </textarea>
+				</div>
+
+
+				<br><br>
+
+				<!-- image-->
+				<div class="input-group mb-3">
+					<input type="file" name="image" class="form-control" id="image" accept="image/*">
+					<label class="input-group-text" for="inputGroupFile02">Choisir une image </label>
+
+				</div>
+
+				<!-- ID-->
+                <div hidden class="mb-3">
+                    <label for="texte" class="form-label">ID</label>
+                    <input type="text" name="id" class="form-control" id="texte" aria-describedby="emailHelp" value={{ articles.getId }}>
+                    <div id="emailHelp" class="form-text"></div>
+                </div>
+				
+
+
+				<button type="submit" class="btn btn-primary" name="update">Modifier Mon Article</button>
+
+			</form>
+
+
+			<br>
+
+		</div>
+
+
+		<!-- Footer-->
+	
+
+{% include 'footer.html.twig' %}
+	</body>
+
+
+</html>

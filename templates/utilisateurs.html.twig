@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html.twig' %}
+
+<body>
+{% include 'navbar.html.twig' %}
+<div class="container">
+    <div class="text-center mt-5">
+        <h1> Utilisateur</h1>
+        <p class="lead">Licence ASR</p>
+        <p>Mon Blog</p>
+    </div>
+</div>
+
+<div class="col-6 mb-3 offset-md-3">
+        <div class="row">
+            <form id="utilisateursForm" method="POST" action="utilisateurs.php" enctype="multipart/form-data">
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nom :</span>
+                </div>
+                <input type="text" class="form-control" name="nom" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Prénom :</span>
+                </div>
+                <input type="text" class="form-control" name="prenom" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email :</span>
+                </div>
+                <input type="email" class="form-control" name="email" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe :</span>
+                </div>
+                <input type="password" class="form-control" name="mdp" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button class="btn btn-primary" type="submit" id="submit" name="submit" value="ajouter">Ajouter mon utilisateur</button>
+{% include 'footer.html.twig' %}
+
+            </body>
+</html>
+
